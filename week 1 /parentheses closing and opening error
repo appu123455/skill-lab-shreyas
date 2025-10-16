@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char expr[100], stack[100];
+    int top = -1, i = 0, ok = 1;
+    int paren_count = 0;
+
+    printf("Enter a string with parentheses: ");
+    scanf("%s", expr);
+
+    while (expr[i] != '\0') {
+        if (expr[i] == '(') {
+            stack[++top] = '(';
+            paren_count++;
+        } else if (expr[i] == ')') {
+            paren_count++;
+            if (top == -1) {
+                ok = 0;
+                break;
+            }
+            top--;
+        }
+        i++;
+    }
+
+    if (top != -1) ok = 0;
+
+    if (ok) {
+        printf("The sentence is balanced.\n");
+        printf("Number of parentheses: %d\n", paren_count);
+    } else {
+        printf("imbalance\n");
+        printf("Number of parentheses: %d\n", paren_count);
+    }
+
+    return 0;
+}
