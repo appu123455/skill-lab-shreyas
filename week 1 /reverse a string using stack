@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void main() {
+    char text[100];
+    char stack[100];
+    int top = -1;
+    int i = 0;
+    printf("Enter a string: ");
+    scanf("%s", text);  
+    while (text[i] != '\0') {
+        top++;
+        stack[top] = text[i];
+        i++;
+    }
+    printf("Reversed string: ");
+    while (top >= 0) {
+        printf("%c", stack[top]);
+        top--;
+    }
+    printf("\n");
+  
+}
+    
